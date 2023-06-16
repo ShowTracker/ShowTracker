@@ -13,21 +13,21 @@ import model.media.Media;
  * @author aluno
  */
 public class WatchedList {
-    private long id;
+    private int id;
     private User user;
     private List<Media> medias;
 
-    public WatchedList(long id, User user) {
+    public WatchedList(int id, User user) {
         this.id = id;
         this.user = user;
         this.medias = new ArrayList<>();
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -13,7 +13,7 @@ import model.Genre;
  * @author aluno
  */
 public abstract class Media {
-    protected long id;
+    protected int id;
     protected String year;
     protected String title;
     protected boolean isAdult;
@@ -22,7 +22,7 @@ public abstract class Media {
     public Media() {
     }
 
-    public Media(long id, String year, String title, boolean isAdult) {
+    public Media(int id, String year, String title, boolean isAdult) {
         this.id = id;
         this.year = year;
         this.title = title;
@@ -30,11 +30,11 @@ public abstract class Media {
         this.genres = new ArrayList<>();
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

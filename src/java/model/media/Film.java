@@ -8,7 +8,7 @@ package model.media;
 public class Film extends Media {
     private String duration;
 
-    public Film(String duration, long id, String year, String title, boolean isAdult) {
+    public Film(String duration, int id, String year, String title, boolean isAdult) {
         super(id, year, title, isAdult);
         this.duration = duration;
     }

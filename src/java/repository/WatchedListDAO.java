@@ -13,7 +13,7 @@ public class WatchedListDAO extends DAO<WatchedList> {
     }
 
     @Override
-    public WatchedList getOne(long id) {
+    public WatchedList getOne(int id) {
         // TODO implement method
         return null;
     }
@@ -30,7 +30,7 @@ public class WatchedListDAO extends DAO<WatchedList> {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(int id) {
         // TODO implement method
     }
     

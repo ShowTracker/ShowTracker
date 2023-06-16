@@ -13,7 +13,7 @@ public class UserDAO extends DAO<User>  {
     }
 
     @Override
-    public User getOne(long id) {
+    public User getOne(int id) {
         // TODO implement method
         return null;
     }
@@ -30,7 +30,7 @@ public class UserDAO extends DAO<User>  {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(int id) {
         // TODO implement method
     }
     

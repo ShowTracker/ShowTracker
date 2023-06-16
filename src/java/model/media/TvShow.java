@@ -8,7 +8,7 @@ package model.media;
 public class TvShow extends Media {
     private String endYear;
 
-    public TvShow(String endYear, long id, String year, String title, boolean isAdult) {
+    public TvShow(String endYear, int id, String year, String title, boolean isAdult) {
         super(id, year, title, isAdult);
         this.endYear = endYear;
     }

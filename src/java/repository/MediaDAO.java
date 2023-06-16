@@ -12,7 +12,7 @@ public class MediaDAO extends DAO<Media> {
     }
 
     @Override
-    public Media getOne(long id) {
+    public Media getOne(int id) {
         // TODO implement method
         return null;
     }
@@ -29,7 +29,7 @@ public class MediaDAO extends DAO<Media> {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(int id) {
         // TODO implement method
     }
     

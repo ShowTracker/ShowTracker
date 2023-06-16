@@ -6,22 +6,22 @@ package model;
 
 
 public class Genre {
-    private long id;
+    private int id;
     private String name;
 
     public Genre() {
     }
 
-    public Genre(long id, String name) {
+    public Genre(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
