@@ -11,7 +11,7 @@ public abstract class DAO<T> {
     public static final String USER = "postgres";
     public static final String PASSWORD = "ufc123";
     
-    public abstract void insert(T obj);
+    public abstract boolean insert(T obj);
     
     public abstract T getOne(int id);
     
@@ -19,5 +19,5 @@ public abstract class DAO<T> {
     
     public abstract void update(T obj);
     
-    public abstract void delete(int id);
+    public abstract boolean delete(int id);
 }

@@ -15,9 +15,20 @@ public class GenreDAO extends DAO<Genre> {
 
 
     @Override
-    public void insert(Genre obj) {
-        // TODO implement method
-        
+    public boolean insert(Genre obj) {
+        boolean result = false;
+        try {
+            Class.forName(DRIVER);
+            Connection c = DriverManager.getConnection(URL, USER, PASSWORD);
+            PreparedStatement stmt = c.prepareStatement("INSERT INTO genre (name) VALUES (?)");
+            stmt.setString(1, obj.getName());
+            result = (stmt.executeUpdate() == 1);
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return result;
     }
 
     @Override
@@ -89,12 +100,13 @@ public class GenreDAO extends DAO<Genre> {
 
     @Override
     public void update(Genre obj) {
-        // TODO implement method
+        // CANNOT USE METHOD
     }
 
     @Override
-    public void delete(int id) {
-        // TODO implement method
+    public boolean delete(int id) {
+        // CANNOT USE METHOD
+        return false;
     }
     
 }

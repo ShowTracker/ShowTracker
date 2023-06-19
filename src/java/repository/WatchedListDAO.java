@@ -8,8 +8,9 @@ import model.WatchedList;
 public class WatchedListDAO extends DAO<WatchedList> {
 
     @Override
-    public void insert(WatchedList obj) {
+    public boolean insert(WatchedList obj) {
         // TODO implement method
+        return false;
     }
 
     @Override
@@ -30,8 +31,9 @@ public class WatchedListDAO extends DAO<WatchedList> {
     }
 
     @Override
-    public void delete(int id) {
+    public boolean delete(int id) {
         // TODO implement method
+        return false;
     }
     
 }

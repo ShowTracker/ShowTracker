@@ -8,8 +8,9 @@ import model.User;
 public class UserDAO extends DAO<User>  {
 
     @Override
-    public void insert(User obj) {
+    public boolean insert(User obj) {
         // TODO implement method
+        return false;
     }
 
     @Override
@@ -30,8 +31,9 @@ public class UserDAO extends DAO<User>  {
     }
 
     @Override
-    public void delete(int id) {
+    public boolean delete(int id) {
         // TODO implement method
+        return false;
     }
     
 }
