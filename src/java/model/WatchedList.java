@@ -14,12 +14,12 @@ import model.media.Media;
  */
 public class WatchedList {
     private int id;
-    private User user;
+    private String user_email;
     private List<Media> medias;
 
-    public WatchedList(int id, User user) {
+    public WatchedList(int id, String user_email) {
         this.id = id;
-        this.user = user;
+        this.user_email = user_email;
         this.medias = new ArrayList<>();
     }
 
@@ -31,12 +31,12 @@ public class WatchedList {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public String getUserEmail() {
+        return this.user_email;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserEmail(String user_email) {
+        this.user_email = user_email;
     }
 
     public List<Media> getMedias() {
@@ -45,5 +45,9 @@ public class WatchedList {
     
     public void addMedia(Media media) {
         this.medias.add(media);
+    }
+
+    public void setMedias(List<Media> medias) {
+        this.medias = medias;
     }
 }

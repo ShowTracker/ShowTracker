@@ -39,13 +39,12 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         User user = new User(firstName, email, lastName, birthDate, password);
         UserDAO userDAO = new UserDAO();
-        
+
         boolean insert = userDAO.insert(user);
-        
-        WatchedListDAO wlDAO = new WatchedListDAO();
-        wlDAO.insert(email);
-        
+
         if (insert) {
+            WatchedListDAO wlDAO = new WatchedListDAO();
+            wlDAO.insert(email);
             RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
             dispatcher.forward(request, response);
         } else {

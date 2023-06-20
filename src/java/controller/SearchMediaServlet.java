@@ -19,7 +19,7 @@ import repository.MediaDAO;
  *
  * @author aluno
  */
-public class ListAllMediaServlet extends HttpServlet {
+public class SearchMediaServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,10 +32,15 @@ public class ListAllMediaServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
+        
+        String entry = request.getParameter("search-entry");
         MediaDAO mediaDAO = new MediaDAO();
-        List<Media> media = mediaDAO.getAll();
-        request.setAttribute("result", media);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("listMedia.jsp");
+        
+        List<Media> searchResult = mediaDAO.searchMedia(entry);
+        request.setAttribute("result", searchResult);
+        request.setAttribute("entry", entry);
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("searchResults.jsp");
         dispatcher.forward(request, response);
     }
 

@@ -37,8 +37,10 @@ public class LoginSevlet extends HttpServlet {
         User myUser = userDAO.getOne(email, password);
 
         if (myUser != null) {
+            request.setAttribute("email", email);
             RequestDispatcher dispatcher = request.getRequestDispatcher("Home");
             dispatcher.forward(request, response);
+            
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
             dispatcher.forward(request, response);

@@ -1,13 +1,13 @@
 <%-- 
-    Document   : home
-    Created on : 20 de jun. de 2023, 11:06:33
+    Document   : searchResults
+    Created on : 20 de jun. de 2023, 13:29:05
     Author     : aluno
 --%>
 
-<%@page import="model.media.TvShow"%>
 <%@page import="model.media.Film"%>
-<%@page import="java.util.List"%>
+<%@page import="model.media.TvShow"%>
 <%@page import="model.media.Media"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,11 +21,11 @@
     <body>
         <h1>ShowTracker</h1>
 
-        <p id="page-message">Hi, Maria!</p>
+        <p id="page-message">Search results for '<%= request.getAttribute("entry")%>'</p>
         <form id="search-form" action="SearchMedia">
             <input type="text" name="search-entry" placeholder="Search...">
             <button type="submit" value="SearchMedia">Search</button>
-        </form>   
+        </form>  
 
         <div class="grid-container">
             <%
@@ -34,7 +34,7 @@
                 if (medias.isEmpty()) {
 
             %>
-            <h2>Nenhuma mídia encontrada!</h2>
+            <h2>Nenhuma resultado encontrado!</h2>
             <%            } else {
                 for (Media m : medias) {
             %>
