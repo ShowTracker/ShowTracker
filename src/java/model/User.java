@@ -5,34 +5,36 @@
 package model;
 
 public class User {
-    private int id;
-    private String name;
+    private String fisrtName;
+    private String lastName;
     private String email;
     private String birthDate;
+    private String password;
 
     public User() {}
     
-    public User(int id, String name, String email, String birthDate) {
-        this.id = id;
-        this.name = name;
+    public User(String fisrtName, String email, String lastName, String birthDate, String password) {
+        this.fisrtName = fisrtName;
+        this.lastName = lastName;
         this.email = email;
         this.birthDate = birthDate;
+        this.password = password;
     }
 
-    public int getId() {
-        return id;
+    public String getFisrtName() {
+        return fisrtName;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setFisrtName(String fisrtName) {
+        this.fisrtName = fisrtName;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -49,6 +51,14 @@ public class User {
 
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     

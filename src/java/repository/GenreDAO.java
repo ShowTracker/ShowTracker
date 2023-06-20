@@ -33,7 +33,6 @@ public class GenreDAO extends DAO<Genre> {
 
     @Override
     public Genre getOne(int id) {
-        // TODO test
         Genre resultado = null;
         try {
             Class.forName(DRIVER);

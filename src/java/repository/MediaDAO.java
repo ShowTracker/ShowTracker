@@ -1,4 +1,3 @@
-
 package repository;
 
 import java.sql.Connection;
@@ -22,7 +21,7 @@ public class MediaDAO extends DAO<Media> {
 
     @Override
     public Media getOne(int id) {
-        
+
         Media result = null;
         try {
             Class.forName(DRIVER);
@@ -70,6 +69,7 @@ public class MediaDAO extends DAO<Media> {
             boolean found = false;
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
+                
                 if (rs.getString("title_type") == "movie") {
                     int codigo = rs.getInt("id");
                     String title = rs.getString("title");
@@ -78,7 +78,8 @@ public class MediaDAO extends DAO<Media> {
                     String duration = rs.getString("duration");
                     Media f = new Film(duration, codigo, year, title, isAdult);
                     result.add(f);
-                } else if (rs.getString("title_type") == "tvSeries"){
+                    // } else if (rs.getString("title_type") == "tvSeries"){
+                } else {
                     int codigo = rs.getInt("id");
                     String title = rs.getString("title");
                     String year = rs.getString("year");
@@ -113,5 +114,5 @@ public class MediaDAO extends DAO<Media> {
         // TODO implement method
         return false;
     }
-    
+
 }

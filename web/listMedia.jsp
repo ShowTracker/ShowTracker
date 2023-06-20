@@ -57,5 +57,56 @@
                 }
             %>
         </div>
+        
+        <div class="pagination">
+    <button onclick="previousPage()">Previous</button>
+    <span class="current-page">1</span>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <script>
+    var itemsPerPage = 12;
+    var currentPage = 1;
+    var totalItems = document.querySelectorAll('.grid-item').length;
+    var totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    function showItemsForPage(page) {
+      var items = document.querySelectorAll('.grid-item');
+      var startIndex = (page - 1) * itemsPerPage;
+      var endIndex = startIndex + itemsPerPage;
+
+      items.forEach(function(item, index) {
+        if (index >= startIndex && index < endIndex) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function previousPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePagination();
+        showItemsForPage(currentPage);
+      }
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updatePagination();
+        showItemsForPage(currentPage);
+      }
+    }
+
+    function updatePagination() {
+      var currentElement = document.querySelector('.current-page');
+      currentElement.textContent = currentPage;
+    }
+
+    // Initial setup
+    showItemsForPage(currentPage);
+  </script>
     </body>
 </html>

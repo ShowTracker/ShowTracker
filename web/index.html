@@ -5,13 +5,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
     <head>
-        <title>MoviesList</title>
+        <title>ShowTracker</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            window.onload = function () {
+                setTimeout(function () {
+                    window.location.href = 'login.jsp'; // Set to true to force a full reload, including fetching the page from the server
+                }, 5000); // Replace 5000 with the desired delay in milliseconds
+            };
+        </script>
     </head>
     <body>
-        <h1>An application for saving yout watched medias (TvSeries and Films)</h1>
-        <div>TODO write content</div>
-        <a href="ListAllMedia">home</a>
+        <h1>Reloading...</h1>
     </body>
 </html>
