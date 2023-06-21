@@ -22,6 +22,9 @@
                 margin-bottom: 0px;
                 background-color: transparent;
                 border: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             .modal {
                 display: none; /* Hide the modal by default */
@@ -63,7 +66,7 @@
     </head>
 
     <body>
-        <h1>ShowTracker</h1>
+        <a id="heading" href="Home?email=<%= request.getAttribute("email")%>&first-name=<%= request.getAttribute("first-name")%>"><h1>ShowTracker</h1></a>
 
         <%
             String error = (String) request.getAttribute("error");
@@ -83,6 +86,7 @@
         <form id="search-form" action="SearchMedia">
             <input type="text" name="search-entry" placeholder="Search..." required>
             <input type="hidden" name="user-email" id="user-email" value=<%= request.getAttribute("email")%>>
+            <input type="hidden" name="first-name" id="first-name" value=<%= request.getAttribute("first-name")%>>
             <button type="submit" value="SearchMedia">Search</button>
         </form>  
 
@@ -127,7 +131,13 @@
                         }
                         if (exists) {
                     %>
-                    <button id="delete-media">Remove</button>
+                    <form action="DeleteMediaAtSearch">
+                        <input type="hidden" name="user-email" id="user-email" value=<%= request.getAttribute("email")%>>
+                        <input type="hidden" name="media-id" id="media-id" value=<%= m.getId()%>>
+                        <input type="hidden" name="search-entry" id="search-entry" value=<%= request.getAttribute("entry")%>>
+                        <input type="hidden" name="first-name" id="first-name" value=<%= request.getAttribute("first-name")%>>
+                        <button id="delete-media">Remove</button>
+                    </form>
                     <%
                     } else {
                     %>
@@ -135,6 +145,7 @@
                         <input type="hidden" name="user-email" id="user-email" value=<%= request.getAttribute("email")%>>
                         <input type="hidden" name="media-id" id="media-id" value=<%= m.getId()%>>
                         <input type="hidden" name="search-entry" id="search-entry" value=<%= request.getAttribute("entry")%>>
+                        <input type="hidden" name="first-name" id="first-name" value=<%= request.getAttribute("first-name")%>>
                         <button id="add-media" value="AddMedia">Add</button>
                     </form>
                     <%

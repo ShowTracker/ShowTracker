@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.auth;
+package controller;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -10,14 +10,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.User;
-import repository.UserDAO;
+import model.WatchedList;
+import repository.WatchedListDAO;
 
 /**
  *
  * @author aluno
  */
-public class LoginSevlet extends HttpServlet {
+public class DeleteMediaServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,18 +31,24 @@ public class LoginSevlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        UserDAO userDAO = new UserDAO();
+        int media_id = Integer.parseInt(request.getParameter("media-id"));
+        String first_name = request.getParameter("first-name");
 
-        User myUser = userDAO.getOne(email, password);
-        
-        if (myUser != null) {
+        WatchedListDAO wlDAO = new WatchedListDAO();
+        WatchedList wl = wlDAO.getOne(email);
+
+        boolean deleteMedia = wlDAO.deleteUserMedia(media_id, wl.getId());
+        if (deleteMedia) {
+            request.setAttribute("error", null);
             request.setAttribute("email", email);
-            request.setAttribute("first-name", myUser.getFisrtName());
+            request.setAttribute("first-name", request.getAttribute("first-name"));
             RequestDispatcher dispatcher = request.getRequestDispatcher("Home");
             dispatcher.forward(request, response);
         } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Login");
+            request.setAttribute("error", "Alguma coisa deu errado!");
+            request.setAttribute("email", email);
+            request.setAttribute("first-name", first_name);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Home");
             dispatcher.forward(request, response);
         }
     }

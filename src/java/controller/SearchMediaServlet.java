@@ -33,24 +33,25 @@ public class SearchMediaServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        
+
         String entry = request.getParameter("search-entry");
         String user_email = request.getParameter("user-email");
+        String first_name = request.getParameter("first-name");
         MediaDAO mediaDAO = new MediaDAO();
-        
-        
+
         WatchedListDAO wlDAO = new WatchedListDAO();
         WatchedList wl = wlDAO.getOne(user_email);
-        
+
         List<Media> userMedia = wlDAO.getAllUserMedia(wl.getId());
-        
+
         List<Media> searchResult = mediaDAO.searchMedia(entry);
         request.setAttribute("result", searchResult);
         request.setAttribute("entry", entry);
         request.setAttribute("email", user_email);
         request.setAttribute("user-media", userMedia);
+        request.setAttribute("first-name", first_name);
         request.setAttribute("error", null);
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("searchResults.jsp");
         dispatcher.forward(request, response);
     }

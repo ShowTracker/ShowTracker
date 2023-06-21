@@ -160,8 +160,24 @@ public class WatchedListDAO extends DAO<WatchedList> {
 
     @Override
     public boolean delete(int id) {
-        // TODO implement method
         return false;
+    }
+
+    public boolean deleteUserMedia(int media_id, int wl_id) {
+        boolean resultado = false;
+        try {
+            Class.forName(DRIVER);
+            Connection c = DriverManager.getConnection(URL, USER, PASSWORD);
+            PreparedStatement stmt = c.prepareStatement("DELETE FROM wl_media WHERE wl_id = ? AND media_id = ?");
+            stmt.setInt(1, wl_id);
+            stmt.setInt(2, media_id);
+            resultado = (stmt.executeUpdate() == 1);
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return resultado;
     }
 
 }

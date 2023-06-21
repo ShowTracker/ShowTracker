@@ -20,6 +20,14 @@
         <servlet-name>AddMediaToListServlet</servlet-name>
         <servlet-class>controller.AddMediaToListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteMediaAtSearchServlet</servlet-name>
+        <servlet-class>controller.DeleteMediaAtSearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteMediaServlet</servlet-name>
+        <servlet-class>controller.DeleteMediaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginSevlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>AddMediaToListServlet</servlet-name>
         <url-pattern>/AddMedia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteMediaAtSearchServlet</servlet-name>
+        <url-pattern>/DeleteMediaAtSearch</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteMediaServlet</servlet-name>
+        <url-pattern>/DeleteMedia</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
