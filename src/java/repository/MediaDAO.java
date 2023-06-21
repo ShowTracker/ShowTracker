@@ -110,8 +110,8 @@ public class MediaDAO extends DAO<Media> {
         try {
             Class.forName(DRIVER);
             Connection c = DriverManager.getConnection(URL, USER, PASSWORD);
-            PreparedStatement stmt = c.prepareStatement("SELECT id, title_type, year, title, is_adult, duration, end_year FROM media WHERE title LIKE '%?%'");
-            stmt.setString(1, entry);
+            PreparedStatement stmt = c.prepareStatement("SELECT id, title_type, year, title, is_adult, duration, end_year FROM media WHERE title LIKE '%" + entry + "%'");
+            // stmt.setString(1, entry);
             boolean found = false;
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
