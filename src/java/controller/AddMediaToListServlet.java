@@ -5,7 +5,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,14 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.WatchedList;
 import model.media.Media;
-import repository.MediaDAO;
 import repository.WatchedListDAO;
 
 /**
  *
  * @author aluno
  */
-public class SearchMediaServlet extends HttpServlet {
+public class AddMediaToListServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,26 +32,29 @@ public class SearchMediaServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        
-        String entry = request.getParameter("search-entry");
+
         String user_email = request.getParameter("user-email");
-        MediaDAO mediaDAO = new MediaDAO();
-        
-        
+        int media_id = Integer.parseInt(request.getParameter("media-id"));
+        String entry = request.getParameter("search-entry");
+
         WatchedListDAO wlDAO = new WatchedListDAO();
         WatchedList wl = wlDAO.getOne(user_email);
-        
-        List<Media> userMedia = wlDAO.getAllUserMedia(wl.getId());
-        
-        List<Media> searchResult = mediaDAO.searchMedia(entry);
-        request.setAttribute("result", searchResult);
-        request.setAttribute("entry", entry);
-        request.setAttribute("email", user_email);
-        request.setAttribute("user-media", userMedia);
-        request.setAttribute("error", null);
-        
-        RequestDispatcher dispatcher = request.getRequestDispatcher("searchResults.jsp");
-        dispatcher.forward(request, response);
+
+        boolean addMedia = wlDAO.addUserMedia(media_id, wl.getId());
+        if (addMedia) {
+            request.setAttribute("error", null);
+            request.setAttribute("search-entry", entry);
+            request.setAttribute("user-email", user_email);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("SearchMedia");
+            dispatcher.forward(request, response);
+        } else {
+            request.setAttribute("error", "Alguma coisa deu errado!");
+            request.setAttribute("search-entry", entry);
+            request.setAttribute("user-email", user_email);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("SearchMedia");
+            dispatcher.forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

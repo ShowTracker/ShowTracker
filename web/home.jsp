@@ -23,7 +23,8 @@
 
         <p id="page-message">Hi, Maria!</p>
         <form id="search-form" action="SearchMedia">
-            <input type="text" name="search-entry" placeholder="Search...">
+            <input type="text" name="search-entry" placeholder="Search..." required>
+            <input type="hidden" name="user-email" id="user-email" value=<%= request.getAttribute("email")%>>
             <button type="submit" value="SearchMedia">Search</button>
         </form>   
 

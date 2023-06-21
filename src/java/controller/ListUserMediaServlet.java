@@ -38,6 +38,7 @@ public class ListUserMediaServlet extends HttpServlet {
         WatchedList wl = wlDAO.getOne(email);
         List<Media> medias = wlDAO.getAllUserMedia(wl.getId());
         request.setAttribute("result", medias);
+        request.setAttribute("email", email);
         RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
         dispatcher.forward(request, response);
     }

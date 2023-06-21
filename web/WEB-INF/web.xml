@@ -16,6 +16,10 @@
         <servlet-name>SearchMediaServlet</servlet-name>
         <servlet-class>controller.SearchMediaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddMediaToListServlet</servlet-name>
+        <servlet-class>controller.AddMediaToListServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginSevlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>SearchMediaServlet</servlet-name>
         <url-pattern>/SearchMedia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddMediaToListServlet</servlet-name>
+        <url-pattern>/AddMedia</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

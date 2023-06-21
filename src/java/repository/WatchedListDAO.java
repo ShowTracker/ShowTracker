@@ -136,6 +136,23 @@ public class WatchedListDAO extends DAO<WatchedList> {
         return resultado;
     }
 
+    public boolean addUserMedia(int media_id, int wl_id) {
+        boolean resultado = false;
+        try {
+            Class.forName(DRIVER);
+            Connection c = DriverManager.getConnection(URL, USER, PASSWORD);
+            PreparedStatement stmt = c.prepareStatement("INSERT INTO wl_media (wl_id, media_id) VALUES (?, ?)");
+            stmt.setInt(1, wl_id);
+            stmt.setInt(2, media_id);
+            resultado = (stmt.executeUpdate() == 1);
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return resultado;
+    }
+
     @Override
     public void update(WatchedList obj) {
         // TODO implement method
