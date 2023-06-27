@@ -28,6 +28,14 @@
         <servlet-name>DeleteMediaServlet</servlet-name>
         <servlet-class>controller.DeleteMediaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfilePageServlet</servlet-name>
+        <servlet-class>controller.ProfilePageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <servlet-class>controller.DeleteAccountServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginSevlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>DeleteMediaServlet</servlet-name>
         <url-pattern>/DeleteMedia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfilePageServlet</servlet-name>
+        <url-pattern>/ProfilePage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <url-pattern>/DeleteAccount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

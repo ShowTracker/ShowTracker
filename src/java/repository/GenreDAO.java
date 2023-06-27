@@ -12,7 +12,7 @@ import model.Genre;
 
 
 public class GenreDAO extends DAO<Genre> {
-
+    
 
     @Override
     public boolean insert(Genre obj) {

@@ -14,7 +14,8 @@
 
     <head>
         <title>ShowTracker</title>
-        <link rel="stylesheet" type="text/css" href="./CSS/style.css">
+      <link rel="shortcut icon" type="x-icon" href="./IMAGES/simbolo.svg">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             .media-item form {
@@ -66,7 +67,15 @@
     </head>
 
     <body>
-        <a id="heading" href="Home?email=<%= request.getAttribute("email")%>&first-name=<%= request.getAttribute("first-name")%>"><h1>ShowTracker</h1></a>
+        <div class="top-rectangle"></div>
+  <div class="menu-nav">
+    <img class="logo-img" src="./IMAGES/logo.svg" alt="ShowTracker">
+    <ul class="menu-opts">
+      <li><a href="Home?email=<%= request.getAttribute("email")%>&first-name=<%= request.getAttribute("first-name")%>">Home</a></li>
+      <li><a href="./perfil.html">Perfil</a></li>
+      <li><a href="login.jsp">Logout</a></li>
+    </ul>
+  </div>
 
         <%
             String error = (String) request.getAttribute("error");

@@ -9,10 +9,16 @@
 <html>
 <head>
   <title>ShowTracker</title>
-  <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="shortcut icon" type="x-icon" href="./IMAGES/simbolo.svg">
+  <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-  <h1>Login</h1>
+  <div class="top-rectangle"></div>
+  
+  <div class="menu-nav">
+    <img class="logo-img" src="./IMAGES/logo.svg" alt="ShowTracker">
+  </div>
+  <h2>Login</h2>
   
   <form action="Login" method="post">
     <label for="email">Email:</label>

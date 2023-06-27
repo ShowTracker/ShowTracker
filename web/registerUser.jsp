@@ -9,11 +9,17 @@
 <html>
 <head>
   <title>ShowTracker</title>
-  <link rel="stylesheet" type="text/css" href="./CSS/style.css">
+      <link rel="shortcut icon" type="x-icon" href="./IMAGES/simbolo.svg">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1>Registration</h1>
   
+  <div class="top-rectangle"></div>
+  <div class="menu-nav">
+    <img class="logo-img" src="./IMAGES/logo.svg" alt="ShowTracker">
+  </div>
+  
+  <h2>Register</h2>
   <form action="Register" method="post">
     <label for="firstName">First Name:</label>
     <input type="text" id="firstName" name="firstName" required><br><br>

@@ -12,9 +12,10 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>ShowTracker</title>
-        <link rel="stylesheet" type="text/css" href="./CSS/style.css">
+    <head> 
+       <title>ShowTracker</title>
+      <link rel="shortcut icon" type="x-icon" href="./IMAGES/simbolo.svg">
+       <link rel="stylesheet" type="text/css" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             .media-item form {
@@ -66,7 +67,15 @@
     </head>
 
     <body>
-
+        <div class="top-rectangle"></div>
+          <div class="menu-nav">
+            <img class="logo-img" src="./IMAGES/logo.svg" alt="ShowTracker">
+            <ul class="menu-opts">
+                <li><a href="Home?email=<%= request.getAttribute("email")%>&first-name=<%= request.getAttribute("first-name")%>">Home</a></li>
+                <li><a href="ProfilePage?email=<%= request.getAttribute("email")%>">Perfil</a></li>
+                <li><a href="login.jsp">Logout</a></li>
+            </ul>
+        </div>
         <%
             String error = (String) request.getAttribute("error");
             if (error != null) {
@@ -80,9 +89,6 @@
         </div>
         <%
             }
-        %>
-        <h1>ShowTracker</h1>
-        <%
             if (request.getParameter("first-name") == null) {
         %>
         <p id="page-message">Hi, <%= request.getAttribute("first-name")%></p>
@@ -92,6 +98,7 @@
         <p id="page-message">Hi, <%= request.getParameter("first-name")%></p><%
             }
         %>
+        <p id="page-submessage">What have you been watching?</p>
         <form id="search-form" action="SearchMedia">
             <input type="text" name="search-entry" placeholder="Search..." required>
             <input type="hidden" name="user-email" id="user-email" value=<%= request.getAttribute("email")%>>

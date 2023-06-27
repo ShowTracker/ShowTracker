@@ -162,6 +162,41 @@ public class WatchedListDAO extends DAO<WatchedList> {
     public boolean delete(int id) {
         return false;
     }
+    
+    public boolean delete(String email) {
+        boolean result = false;
+        try {
+            Class.forName(DRIVER);
+            Connection c = DriverManager.getConnection(URL, USER, PASSWORD);
+            PreparedStatement stmt = c.prepareStatement("DELETE FROM whatched_list WHERE user_email = ?");
+            stmt.setString(1, email);
+            result = (stmt.executeUpdate() == 1);
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return result;
+    }
+
+    public boolean deleteAllUserMedia(int id) {
+        boolean resultado = false;
+        try {
+            Class.forName(DRIVER);
+            Connection c = DriverManager.getConnection(URL, USER, PASSWORD);
+            PreparedStatement stmt = c.prepareStatement(
+                            "DELETE FROM wl_media WHERE wl_id =  ?");
+            stmt.setInt(1, id);
+            resultado = (stmt.executeUpdate() == 1);
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+
+        return resultado;
+    }
+
 
     public boolean deleteUserMedia(int media_id, int wl_id) {
         boolean resultado = false;

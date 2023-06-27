@@ -77,6 +77,41 @@ public class UserDAO extends DAO<User> {
         // TODO implement method
         return result;
     }
+    public User getOne(String email) {
+        User result = null;
+        try {
+            Class.forName(DRIVER);
+            Connection c = DriverManager.getConnection(URL, USER, PASSWORD);
+            PreparedStatement stmt = c.prepareStatement("SELECT email, password, first_name, last_name, birth_date FROM user_movie WHERE email = ?");
+            stmt.setString(1, email);
+            boolean found = false;
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                String u_email = rs.getString("email");
+                String u_password = rs.getString("password");
+                String first_name = rs.getString("first_name");
+                String last_name = rs.getString("last_name");
+                String birth_date = rs.getString("birth_date");
+
+                found = true;
+                User user = new User(first_name, u_email, last_name, birth_date, u_password);
+                result = user;
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+            if (!found) {
+                System.out.println("Nenhum registro encontrado");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        // TODO implement method
+        return result;
+    }
 
     @Override
     public List<User> getAll() {
@@ -93,6 +128,22 @@ public class UserDAO extends DAO<User> {
     public boolean delete(int id) {
         // CANNOT USE METHOD
         return false;
+    }
+    
+    public boolean delete(String email) {
+        boolean result = false;
+        try {
+            Class.forName(DRIVER);
+            Connection c = DriverManager.getConnection(URL, USER, PASSWORD);
+            PreparedStatement stmt = c.prepareStatement("DELETE FROM user_movie WHERE email = ?");
+            stmt.setString(1, email);
+            result = (stmt.executeUpdate() == 1);
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return result;
     }
 
 }
