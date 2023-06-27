@@ -98,8 +98,9 @@ public class GenreDAO extends DAO<Genre> {
     }
 
     @Override
-    public void update(Genre obj) {
+    public boolean update(Genre obj) {
         // CANNOT USE METHOD
+        return false;
     }
 
     @Override

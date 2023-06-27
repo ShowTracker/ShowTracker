@@ -17,6 +17,13 @@
                 float: left;
                 clear: left;
             }
+            .update-form {
+                padding: 0px;
+                float: left;
+                margin-right: 15px;
+                background-color: transparent;
+                border: 0;
+            }
        </style>
     </head> 
    <body>
@@ -34,16 +41,34 @@
         </div>
         <p id="page-message">Hi, <%= user.getFisrtName() %></p>
         <p id="page-submessage">Your informations:</p>
+        
+        <div>
+            <form class="update-form" action="UpdatePage">
+                <input type="hidden" name="email" id="email" value=<%= request.getAttribute("email")%>>
+                <input type="hidden" name="type" id="type" value="firstName">
+                <button id="edit-account">Edit First Name</button>
+            </form>
+        </div>
         <p class="info">
             First Name: <%= user.getFisrtName() %> 
-            <button id="edit-account">Edit First Name</button>
         </p>
+        <form class="update-form" action="UpdatePage">
+                <input type="hidden" name="email" id="email" value=<%= request.getAttribute("email")%>>
+                <input type="hidden" name="type" id="type" value="lastName">
+                <button id="edit-account">Edit Last Name</button>
+            </form>
         <p class="info">
             Last Name: <%= user.getLastName()%>
-            <button id="edit-account">Edit Last Name</button></p>
+            
+        </p>
+        <form class="update-form" action="UpdatePage">
+                <input type="hidden" name="email" id="email" value=<%= request.getAttribute("email")%>>
+                <input type="hidden" name="type" id="type" value="birthday">
+                <button id="edit-account">Edit Birthday</button>
+            </form>
         <p class="info">
             Birthday: <%= user.getBirthDate()%>
-            <button id="edit-account">Edit Birthday</button>
+            
         </p>
         
         <form class="media-item" action="DeleteAccount">

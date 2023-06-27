@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller;
+package controller.update;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +18,7 @@ import repository.UserDAO;
  *
  * @author aluno
  */
-public class ProfilePageServlet extends HttpServlet {
+public class UpdateBirthdayServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,18 +31,21 @@ public class ProfilePageServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        String email = request.getParameter("email");
         UserDAO userDAO = new UserDAO();
         
-        User myUser = userDAO.getOne(email);
-        if (myUser != null) {
-            request.setAttribute("email", email);
-            request.setAttribute("user", myUser);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
-            dispatcher.forward(request, response);
-        } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-            dispatcher.forward(request, response);
+        User user = userDAO.getOne(request.getParameter("email"));
+        
+        if (user != null) {
+            user.setBirthDate(request.getParameter("birthDate"));
+            boolean update = userDAO.update(user);
+            if (update) {
+                request.setAttribute("email", user.getEmail());
+                RequestDispatcher dispatcher = request.getRequestDispatcher("ProfilePage");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("ProfilePage");
+                dispatcher.forward(request, response);
+            }
         }
     }
 

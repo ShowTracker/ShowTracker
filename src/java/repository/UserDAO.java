@@ -109,7 +109,6 @@ public class UserDAO extends DAO<User> {
         } catch (Exception ex) {
             System.out.println("Erro: " + ex.getMessage());
         }
-        // TODO implement method
         return result;
     }
 
@@ -120,8 +119,23 @@ public class UserDAO extends DAO<User> {
     }
 
     @Override
-    public void update(User obj) {
-        // CANNOT USE METHOD
+    public boolean update(User obj) {
+        boolean result = false;
+        try {
+            Class.forName(DRIVER);
+            Connection c = DriverManager.getConnection(URL, USER, PASSWORD);
+            PreparedStatement stmt = c.prepareStatement("UPDATE user_movie SET first_name = ?, last_name = ?, birth_date = ? WHERE email = ?");
+            stmt.setString(1, obj.getFisrtName());
+            stmt.setString(2, obj.getLastName());
+            stmt.setString(3, obj.getBirthDate());
+            stmt.setString(4, obj.getEmail());
+            result = (stmt.executeUpdate() == 1);
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return result;
     }
 
     @Override

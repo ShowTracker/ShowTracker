@@ -36,6 +36,22 @@
         <servlet-name>DeleteAccountServlet</servlet-name>
         <servlet-class>controller.DeleteAccountServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateFirstNameServlet</servlet-name>
+        <servlet-class>controller.update.UpdateFirstNameServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateLastNameServlet</servlet-name>
+        <servlet-class>controller.update.UpdateLastNameServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateBirthdayServlet</servlet-name>
+        <servlet-class>controller.update.UpdateBirthdayServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdatePageSevlet</servlet-name>
+        <servlet-class>controller.update.UpdatePageSevlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginSevlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -71,6 +87,22 @@
     <servlet-mapping>
         <servlet-name>DeleteAccountServlet</servlet-name>
         <url-pattern>/DeleteAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateFirstNameServlet</servlet-name>
+        <url-pattern>/UpdateFirstName</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateLastNameServlet</servlet-name>
+        <url-pattern>/UpdateLastName</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateBirthdayServlet</servlet-name>
+        <url-pattern>/UpdateBirthday</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePageSevlet</servlet-name>
+        <url-pattern>/UpdatePage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
