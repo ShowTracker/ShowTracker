@@ -56,7 +56,7 @@ Para o banco de dados foi utilizado o PostgreSQL, como instruído dentro da cade
 
 1. Para criar o banco de dadaos use o Script DDL disponível no seguinte arquivo: [schema-movies.sql](https://drive.google.com/file/d/1wfqSEpKOyFAJUS3HFEACgNvjr4dO4Q62/view?usp=drive_link)
 
-2. Já para inserir os dados iniciais de filmes e gêneros, para que a aplicação tenha de fato alguma utilidade, use o Script DML no seguint arquivo: [instancia-movies.sql](https://drive.google.com/file/d/14lZ-pcnWNDa58BSzD7IACOzuTWoKLGAU/view?usp=drive_link)
+2. Já para inserir os dados iniciais de filmes e gêneros, para que a aplicação tenha de fato alguma utilidade, use o Script DML no seguinte arquivo: [instancia-movies.sql](https://drive.google.com/file/d/14lZ-pcnWNDa58BSzD7IACOzuTWoKLGAU/view?usp=drive_link)
 
 **OBS:** esse passo é de extrema importância, pois sem ele a aplicação não terá nenhuma funcionalidade prática, pois não terão filmes nem séries para pesquisar e adicionar à lista de assistidos.
 
