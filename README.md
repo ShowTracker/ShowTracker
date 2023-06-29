@@ -32,9 +32,9 @@ Apoio de:
 ![MR](mr.png)
 
 
-## Modelagem de Classes
+## Diagrama de Classes
 
-colocar imagem
+![Diagrama de classes](showTracker.svg)
 
 ---
 
