@@ -44,10 +44,6 @@ O projeto foi feito utilizando Java 17 como back-end e HTML, CSS e JavaScript pa
 
 Para o banco de dados foi utilizado o PostgreSQL, como instruído dentro da cadeira. Mas na versão utilizada dentro da cadeira de Programação Orientada à Objetos, foi optado por utilizar SQLite.
 
-## Como Rodar o Projeto
-
-????
-
 ---
 
 ## Criação do Banco de Dados e Inserção dos Dados
