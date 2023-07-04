@@ -3,7 +3,9 @@
 
 ShowTracker é uma aplicação desenvolvida dentro da disciplina de Banco de Dados I do cursos de Sistema e Mídias Digitais da UFC. Ela serve para um usuário guardar sua lista de filmes e séries assistidas.
 
-Para construir a aplicação e deixá-la funcional foi utilizado o dataset 'title.basics.tsv.gz' do IMDb, com todas as informações de séries e filmes, disponível em: [https://developer.imdb.com/non-commercial-datasets/](https://developer.imdb.com/non-commercial-datasets/). Abaixo você vai encontrar instruções de como inserir esses dados no seu banco de dados local.
+Para construir a aplicação e deixá-la funcional foi utilizado o dataset 'title.basics.tsv.gz' do IMDb, com todas as informações de séries e filmes, disponível em: [https://developer.imdb.com/non-commercial-datasets/](https://developer.imdb.com/non-commercial-datasets/). Para extrair os dados desse dataset, foi utilizado Python com o intuito de gerar scripts DML seguindo as especificações dos campos de cada tabela modelada. Se extraiu as informações de gênero + filmes e séries (tvShow) e suas informações. Tentou-se extrair também o relacionamento entre essas duas informações, existente no dataset, porém não foi possível devido a grande quantidade de dados presente.
+
+Abaixo você vai encontrar instruções de como inserir esses dados no seu banco de dados local e a modelagem do mesmo.
 
 ## Equipe Responsável
 
